@@ -1,0 +1,110 @@
+body{
+    font-family: Arial, sans-serif;
+    background: #f5f5f5;
+    margin: 0;
+}
+
+.topo{
+    background: #d62828;
+    color: white;
+    text-align: center;
+    padding: 25px;
+}
+
+#login,
+#cadastro,
+#app{
+    max-width:360px;
+    margin: 20px auto;
+    padding: 10px;
+    display: block;
+}
+
+section{
+    background: white;
+    padding: 12px;
+    margin-bottom: 12px;
+    border-radius: 8px;
+}
+
+label{
+    display: block;
+    margin-top: 10px;
+}
+
+input{
+    width: 100%;
+    box-sizing: border-box;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+}
+
+#home img,
+article img{
+    width: 100%;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin: 10px 0;
+}
+
+article{
+    border-bottom: 1px solid #ddd;
+    padding: 8px 0;
+}
+
+article:last-child{
+    border-bottom: none;
+}
+
+button{
+    width: 100%;
+    padding: 10px;
+    margin-top: 12px;
+    background: #d62828;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 15px;
+}
+
+button:hover{
+    background: #b71c1c;
+}
+
+#status{
+    color: #d62828;
+    font-weight: bold;
+}
+
+footer{
+    background: #333;
+    color: white;
+    text-align: center;
+    padding: 15px;
+    border-radius: 10px;
+}
+
+/* Imagem do produto selecionado
+*/
+#produtoSelecionado img {
+    width: 120px;
+    height: 120px;
+    object-fit:contain;
+    display: block;
+    margin: 10px auto;
+}
+
+/*Imagem da tela home 
+*/
+#home img {
+    width: 100%;
+    max-width: auto;
+    object-fit: contain;
+    display: block;
+    margin:10px auto;
+    border-radius: 10px;
+}

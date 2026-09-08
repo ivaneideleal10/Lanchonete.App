@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Lanchonete App</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- CABEÇALHO -->
+    <header class="topo">
+
+        <h1>Lanchonete App</h1>
+
+        <p>
+            Peça seu lanche de forma rápida e prática.
+        </p>
+
+    </header>
+
+
+    <!-- LOGIN -->
+    <section id="login">
+
+        <h2>Login</h2>
+
+        <label for="emailLogin">
+            E-mail
+        </label>
+
+        <input
+            type="email"
+            id="emailLogin"
+            placeholder="Digite seu e-mail"
+        >
+
+        <label for="senhaLogin">
+            Senha
+        </label>
+
+        <input
+            type="password"
+            id="senhaLogin"
+            placeholder="Digite sua senha"
+        >
+
+        <button id="btnEntrar">
+            Entrar
+        </button>
+
+        <p>
+            Ainda não possui uma conta?
+        </p>
+
+        <button id="btnMostrarCadastro">
+            Cadastrar Usuário
+        </button>
+
+    </section>
+
+
+    <!-- CADASTRO -->
+    <section id="cadastro">
+
+        <h2>Cadastrar Usuário</h2>
+
+        <label for="nome">
+            Nome
+        </label>
+
+        <input
+            type="text"
+            id="nome"
+            placeholder="Digite seu nome"
+        >
+
+        <label for="emailCadastro">
+            E-mail
+        </label>
+
+        <input
+            type="email"
+            id="emailCadastro"
+            placeholder="Digite seu e-mail"
+        >
+
+        <label for="telefone">
+            Telefone
+        </label>
+
+        <input
+            type="tel"
+            id="telefone"
+            placeholder="Digite seu telefone"
+        >
+
+        <label for="senhaCadastro">
+            Senha
+        </label>
+
+        <input
+            type="password"
+            id="senhaCadastro"
+            placeholder="Digite sua senha"
+        >
+
+        <button id="btnCadastrar">
+            Cadastrar
+        </button>
+
+    </section>
+
+
+    <!-- APLICATIVO -->
+    <div id="app">
+
+        <main>
+
+
+            <!-- HOME -->
+            <section id="home">
+
+                <h2>
+                    Bem-vindo(a)!
+                </h2>
+
+                <p>
+                    Escolha seu lanche favorito
+                    e faça seu pedido.
+                </p>
+
+                <img
+                    src="imagens/home.png"
+                    alt="Imagem da Lanchonete"
+                >
+
+                <button id="btnCardapio">
+                    Ver Cardápio
+                </button>
+
+            </section>
+
+
+            <!-- CARDÁPIO -->
+            <section>
+
+                <h2>
+                    Cardápio
+                </h2>
+
+                <label for="produto">
+                    Escolha seu produto:
+                </label>
+
+                <select id="produto">
+
+                    <option value="">
+                        Selecione um produto
+                    </option>
+
+                    <option value="hamburguer">
+                        Hambúrguer
+                    </option>
+
+                    <option value="pizza">
+                        Pizza
+                    </option>
+
+                    <option value="cachorro-quente">
+                        Cachorro-quente
+                    </option>
+
+                    <option value="batata-frita">
+                        Batata frita
+                    </option>
+
+                    <option value="coca-cola">
+                        Coca-Cola
+                    </option>
+
+                    <option value="suco">
+                        Suco
+                    </option>
+
+                </select>
+
+
+                <!-- PRODUTO SELECIONADO -->
+                <article id="produtoSelecionado">
+
+                    <img
+                        id="imagemProduto"
+                        src=""
+                        alt="Produto selecionado"
+                    >
+
+                    <h3 id="nomeProduto">
+                        Nenhum produto selecionado
+                    </h3>
+
+                    <p id="descricaoProduto">
+                        Escolha um produto no menu acima.
+                    </p>
+
+                    <p>
+                        <strong id="precoProduto">
+                            R$ 0,00
+                        </strong>
+                    </p>
+
+                </article>
+
+            </section>
+
+
+            <!-- FORMA DE PAGAMENTO -->
+            <section>
+
+                <h2>
+                    Forma de Pagamento
+                </h2>
+
+                <label>
+                    <input
+                        type="radio"
+                        name="pagamento"
+                        value="PIX"
+                        checked
+                    >
+
+                    PIX
+                </label>
+
+                <label>
+                    <input
+                        type="radio"
+                        name="pagamento"
+                        value="Cartão"
+                    >
+
+                    Cartão
+                </label>
+
+                <label>
+                    <input
+                        type="radio"
+                        name="pagamento"
+                        value="Dinheiro"
+                    >
+
+                    Dinheiro
+                </label>
+
+            </section>
+
+
+            <!-- STATUS DO PEDIDO -->
+            <section>
+
+                <h2>
+                    Status do Pedido
+                </h2>
+
+                <p id="status">
+                    Aguardando pedido...
+                </p>
+
+                <button id="btnPedido">
+                    Fazer Pedido
+                </button>
+
+            </section>
+
+
+        </main>
+
+
+        <!-- RODAPÉ -->
+        <footer>
+
+            <p>
+                © 2026 Lanchonete App
+            </p>
+
+        </footer>
+
+    </div>
+
+
+    <!-- JAVASCRIPT -->
+    <script src="script.js"></script>
+
+</body>
+
+</html>
