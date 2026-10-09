@@ -3,16 +3,13 @@ document.getElementById("btnCadastrar").addEventListener("click", () => {
     alert("Cadastro realizado com sucesso!");
 });
 
-
 // Login
 document.getElementById("btnEntrar").addEventListener("click", () => {
     alert("Login realizado com sucesso!");
 });
 
-
 // Botão da Home
 document.getElementById("btnCardapio").addEventListener("click", () => {
-
     document.getElementById("home").scrollIntoView({
         behavior: "smooth"
     });
@@ -20,103 +17,115 @@ document.getElementById("btnCardapio").addEventListener("click", () => {
     document.querySelector("article").scrollIntoView({
         behavior: "smooth"
     });
-
 });
-
 
 // Cardápio
 const produto = document.getElementById("produto");
-
 const imagemProduto = document.getElementById("imagemProduto");
-
 const nomeProduto = document.getElementById("nomeProduto");
-
 const descricaoProduto = document.getElementById("descricaoProduto");
-
 const precoProduto = document.getElementById("precoProduto");
 
+// Produtos vindos da API
+let produtos = [];
 
-const produtos = {
+// Buscar produtos do back-end
+async function carregarProdutos() {
+    try {
+        const resposta = await fetch("http://localhost:3000/api/produtos");
 
-    hamburguer: {
-        nome: "Hambúrguer",
-        descricao: "Pão, carne, queijo e molho especial.",
-        preco: "R$ 15,00",
-        imagem: "imagens/hamburguer.png"
-    },
+        if (!resposta.ok) {
+            throw new Error("Erro ao buscar produtos.");
+        }
 
-    pizza: {
-        nome: "Pizza",
-        descricao: "Pizza saborosa com queijo e molho especial.",
-        preco: "R$ 35,00",
-        imagem: "imagens/pizza.png"
-    },
+        produtos = await resposta.json();
 
-    "cachorro-quente": {
-        nome: "Cachorro-quente",
-        descricao: "Pão, salsicha, molho e complementos.",
-        preco: "R$ 12,00",
-        imagem: "imagens/cachorro-quente.png"
-    },
+        console.log("Produtos carregados:", produtos);
 
-    "batata-frita": {
-        nome: "Batata frita",
-        descricao: "Porção de batata frita crocante.",
-        preco: "R$ 10,00",
-        imagem: "imagens/batata-frita.png"
-    },
+        // Limpar opções antigas do HTML
+        produto.innerHTML = "";
 
-    "coca-cola": {
-        nome: "Coca-Cola",
-        descricao: "Refrigerante Coca-Cola lata 350 ml.",
-        preco: "R$ 6,00",
-        imagem: "imagens/coca-cola.png"
-    },
+        // Opção inicial
+        const opcaoInicial = document.createElement("option");
+        opcaoInicial.value = "";
+        opcaoInicial.textContent = "Selecione um produto";
+        produto.appendChild(opcaoInicial);
 
-    suco: {
-        nome: "Suco",
-        descricao: "Suco natural.",
-        preco: "R$ 7,00",
-        imagem: "imagens/suco.png"
+        // Criar opções com os produtos da API
+        produtos.forEach((item) => {
+            const opcao = document.createElement("option");
+
+            opcao.value = item.id;
+            opcao.textContent = item.nome;
+
+            produto.appendChild(opcao);
+        });
+
+    } catch (error) {
+        console.error("Erro ao carregar produtos:", error);
+
+        alert("Não foi possível carregar os produtos.");
     }
+}
 
-};
-
-
-// Atualizar produto e preço
+// Atualizar produto selecionado
 produto.addEventListener("change", () => {
 
-    const produtoEscolhido = produtos[produto.value];
+    const produtoEscolhido = produtos.find(
+        item => item.id == produto.value
+    );
 
     if (produtoEscolhido) {
 
-        imagemProduto.src = produtoEscolhido.imagem;
+        // Imagens existentes na pasta "imagens"
+const imagensProdutos = {
+    1: "imagens/hamburguer.png",
+    2: "imagens/batata-frita.png",
+    3: "imagens/cachorro-quente.png",
+    4: "imagens/coca-cola.png",
+    5: "imagens/pizza.png",
+    6: "imagens/suco.png"
+};
 
+imagemProduto.src =
+    new URL(
+        imagensProdutos[produtoEscolhido.id] || "",
+        window.location.href
+    ).href;
         imagemProduto.alt = produtoEscolhido.nome;
 
-        nomeProduto.textContent = produtoEscolhido.nome;
+        nomeProduto.textContent =
+            produtoEscolhido.nome;
 
-        descricaoProduto.textContent = produtoEscolhido.descricao;
+        descricaoProduto.textContent =
+            produtoEscolhido.descricao;
 
-        precoProduto.textContent = produtoEscolhido.preco;
+        precoProduto.textContent =
+            "R$ " +
+            Number(produtoEscolhido.preco)
+                .toFixed(2)
+                .replace(".", ",");
 
     } else {
 
         imagemProduto.src = "";
 
-        imagemProduto.alt = "Produto selecionado";
+        imagemProduto.alt =
+            "Produto selecionado";
 
-        nomeProduto.textContent = "Nenhum produto selecionado";
+        nomeProduto.textContent =
+            "Nenhum produto selecionado";
 
         descricaoProduto.textContent =
             "Escolha um produto no menu acima.";
 
-        precoProduto.textContent = "R$ 0,00";
-
+        precoProduto.textContent =
+            "R$ 0,00";
     }
-
 });
 
+// Carregar produtos ao abrir a página
+carregarProdutos();
 
 // Pedido
 const status = document.getElementById("status");
@@ -132,14 +141,16 @@ document.getElementById("btnPedido").addEventListener("click", () => {
         "Pedido enviado!\nPagamento: " + pagamento
     );
 
-    status.textContent = "Pedido recebido";
+    status.textContent =
+        "Pedido recebido";
 
     setTimeout(() => {
-        status.textContent = "Em preparo";
+        status.textContent =
+            "Em preparo";
     }, 3000);
 
     setTimeout(() => {
-        status.textContent = "Pronto para retirada";
+        status.textContent =
+            "Pronto para retirada";
     }, 6000);
-
 });
