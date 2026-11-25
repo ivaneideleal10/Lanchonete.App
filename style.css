@@ -1,10 +1,10 @@
-body{
+body {
     font-family: Arial, sans-serif;
     background: #f5f5f5;
     margin: 0;
 }
 
-.topo{
+.topo {
     background: #d62828;
     color: white;
     text-align: center;
@@ -13,26 +13,26 @@ body{
 
 #login,
 #cadastro,
-#app{
-    max-width:360px;
+#app {
+    max-width: 360px;
     margin: 20px auto;
     padding: 10px;
     display: block;
 }
 
-section{
+section {
     background: white;
     padding: 12px;
     margin-bottom: 12px;
     border-radius: 8px;
 }
 
-label{
+label {
     display: block;
     margin-top: 10px;
 }
 
-input{
+input {
     width: 100%;
     box-sizing: border-box;
     padding: 10px;
@@ -42,7 +42,7 @@ input{
 }
 
 #home img,
-article img{
+article img {
     width: 100%;
     height: 120px;
     object-fit: cover;
@@ -50,16 +50,16 @@ article img{
     margin: 10px 0;
 }
 
-article{
+article {
     border-bottom: 1px solid #ddd;
     padding: 8px 0;
 }
 
-article:last-child{
+article:last-child {
     border-bottom: none;
 }
 
-button{
+button {
     width: 100%;
     padding: 10px;
     margin-top: 12px;
@@ -71,16 +71,16 @@ button{
     font-size: 15px;
 }
 
-button:hover{
+button:hover {
     background: #b71c1c;
 }
 
-#status{
+#status {
     color: #d62828;
     font-weight: bold;
 }
 
-footer{
+footer {
     background: #333;
     color: white;
     text-align: center;
@@ -88,23 +88,62 @@ footer{
     border-radius: 10px;
 }
 
-/* Imagem do produto selecionado
-*/
+/* Imagem do produto selecionado */
 #produtoSelecionado img {
     width: 120px;
     height: 120px;
-    object-fit:contain;
+    object-fit: contain;
     display: block;
     margin: 10px auto;
 }
 
-/*Imagem da tela home 
-*/
+/* Imagem da tela Home */
 #home img {
     width: 100%;
     max-width: auto;
     object-fit: contain;
     display: block;
-    margin:10px auto;
+    margin: 10px auto;
     border-radius: 10px;
+}
+
+/* Área de personalização */
+#adicionaisContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.adicional-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+}
+
+.adicional-item img {
+    width: 65px;
+    height: 65px;
+    object-fit: contain;
+}
+
+.adicional-item label {
+    flex: 1;
+    margin: 0;
+}
+
+.adicional-item input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+}
+
+.adicional-item p {
+    margin: 4px 0;
+    font-size: 14px;
+}
+
+#totalPedido {
+    color: #d62828;
 }

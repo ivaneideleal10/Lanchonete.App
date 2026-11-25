@@ -14,48 +14,26 @@
 
     <!-- CABEÇALHO -->
     <header class="topo">
-
         <h1>Lanchonete App</h1>
-
-        <p>
-            Peça seu lanche de forma rápida e prática.
-        </p>
-
+        <p>Peça seu lanche de forma rápida e prática.</p>
     </header>
-
 
     <!-- LOGIN -->
     <section id="login">
 
         <h2>Login</h2>
 
-        <label for="emailLogin">
-            E-mail
-        </label>
+        <label for="emailLogin">E-mail</label>
+        <input type="email" id="emailLogin"
+            placeholder="Digite seu e-mail">
 
-        <input
-            type="email"
-            id="emailLogin"
-            placeholder="Digite seu e-mail"
-        >
+        <label for="senhaLogin">Senha</label>
+        <input type="password" id="senhaLogin"
+            placeholder="Digite sua senha">
 
-        <label for="senhaLogin">
-            Senha
-        </label>
+        <button id="btnEntrar">Entrar</button>
 
-        <input
-            type="password"
-            id="senhaLogin"
-            placeholder="Digite sua senha"
-        >
-
-        <button id="btnEntrar">
-            Entrar
-        </button>
-
-        <p>
-            Ainda não possui uma conta?
-        </p>
+        <p>Ainda não possui uma conta?</p>
 
         <button id="btnMostrarCadastro">
             Cadastrar Usuário
@@ -63,81 +41,48 @@
 
     </section>
 
-
     <!-- CADASTRO -->
     <section id="cadastro">
 
         <h2>Cadastrar Usuário</h2>
 
-        <label for="nome">
-            Nome
-        </label>
+        <label for="nome">Nome</label>
+        <input type="text" id="nome"
+            placeholder="Digite seu nome">
 
-        <input
-            type="text"
-            id="nome"
-            placeholder="Digite seu nome"
-        >
+        <label for="emailCadastro">E-mail</label>
+        <input type="email" id="emailCadastro"
+            placeholder="Digite seu e-mail">
 
-        <label for="emailCadastro">
-            E-mail
-        </label>
+        <label for="telefone">Telefone</label>
+        <input type="tel" id="telefone"
+            placeholder="Digite seu telefone">
 
-        <input
-            type="email"
-            id="emailCadastro"
-            placeholder="Digite seu e-mail"
-        >
+        <label for="senhaCadastro">Senha</label>
+        <input type="password" id="senhaCadastro"
+            placeholder="Digite sua senha">
 
-        <label for="telefone">
-            Telefone
-        </label>
-
-        <input
-            type="tel"
-            id="telefone"
-            placeholder="Digite seu telefone"
-        >
-
-        <label for="senhaCadastro">
-            Senha
-        </label>
-
-        <input
-            type="password"
-            id="senhaCadastro"
-            placeholder="Digite sua senha"
-        >
-
-        <button id="btnCadastrar">
-            Cadastrar
-        </button>
+        <button id="btnCadastrar">Cadastrar</button>
 
     </section>
-
 
     <!-- APLICATIVO -->
     <div id="app">
 
         <main>
 
-
             <!-- HOME -->
             <section id="home">
 
-                <h2>
-                    Bem-vindo(a)!
-                </h2>
+                <h2>Bem-vindo(a)!</h2>
 
                 <p>
                     Escolha seu lanche favorito
                     e faça seu pedido.
                 </p>
 
-                <img
-                    src="imagens/home.png"
-                    alt="Imagem da Lanchonete"
-                >
+                <img src="imagens/home.png"
+                    alt="Imagem da Lanchonete">
 
                 <button id="btnCardapio">
                     Ver Cardápio
@@ -145,59 +90,27 @@
 
             </section>
 
-
             <!-- CARDÁPIO -->
-            <section>
+            <section id="cardapio">
 
-                <h2>
-                    Cardápio
-                </h2>
+                <h2>Cardápio</h2>
 
                 <label for="produto">
                     Escolha seu produto:
                 </label>
 
                 <select id="produto">
-
                     <option value="">
                         Selecione um produto
                     </option>
-
-                    <option value="hamburguer">
-                        Hambúrguer
-                    </option>
-
-                    <option value="pizza">
-                        Pizza
-                    </option>
-
-                    <option value="cachorro-quente">
-                        Cachorro-quente
-                    </option>
-
-                    <option value="batata-frita">
-                        Batata frita
-                    </option>
-
-                    <option value="coca-cola">
-                        Coca-Cola
-                    </option>
-
-                    <option value="suco">
-                        Suco
-                    </option>
-
                 </select>
-
 
                 <!-- PRODUTO SELECIONADO -->
                 <article id="produtoSelecionado">
 
-                    <img
-                        id="imagemProduto"
+                    <img id="imagemProduto"
                         src=""
-                        alt="Produto selecionado"
-                    >
+                        alt="Produto selecionado">
 
                     <h3 id="nomeProduto">
                         Nenhum produto selecionado
@@ -215,56 +128,62 @@
 
                 </article>
 
+                <!-- ADICIONAIS -->
+                <div id="areaAdicionais" hidden>
+
+                    <h3>Personalize seu pedido</h3>
+
+                    <p>
+                        Escolha os ingredientes extras
+                        que deseja adicionar.
+                    </p>
+
+                    <div id="adicionaisContainer"></div>
+
+                    <p>
+                        <strong>
+                            Valor total:
+                            <span id="totalPedido">R$ 0,00</span>
+                        </strong>
+                    </p>
+
+                </div>
+
             </section>
 
-
             <!-- FORMA DE PAGAMENTO -->
-            <section>
+            <section id="pagamento">
 
-                <h2>
-                    Forma de Pagamento
-                </h2>
+                <h2>Forma de Pagamento</h2>
 
                 <label>
-                    <input
-                        type="radio"
+                    <input type="radio"
                         name="pagamento"
                         value="PIX"
-                        checked
-                    >
-
+                        checked>
                     PIX
                 </label>
 
                 <label>
-                    <input
-                        type="radio"
+                    <input type="radio"
                         name="pagamento"
-                        value="Cartão"
-                    >
-
+                        value="Cartão">
                     Cartão
                 </label>
 
                 <label>
-                    <input
-                        type="radio"
+                    <input type="radio"
                         name="pagamento"
-                        value="Dinheiro"
-                    >
-
+                        value="Dinheiro">
                     Dinheiro
                 </label>
 
             </section>
 
-
             <!-- STATUS DO PEDIDO -->
-            <section>
+            <section id="acompanhamento">
 
-                <h2>
-                    Status do Pedido
-                </h2>
+                <h2>Status do Pedido</h2>
 
                 <p id="status">
                     Aguardando pedido...
@@ -276,25 +195,17 @@
 
             </section>
 
-
         </main>
-
 
         <!-- RODAPÉ -->
         <footer>
-
-            <p>
-                © 2026 Lanchonete App
-            </p>
-
+            <p>© 2026 Lanchonete App</p>
         </footer>
 
     </div>
-
 
     <!-- JAVASCRIPT -->
     <script src="script.js"></script>
 
 </body>
-
 </html>
